@@ -1,0 +1,84 @@
+﻿@model SqlInjection.DTO.User
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>View</title>
+    <style>
+        .back {
+            background: #e2e2e2;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0; 
+            right: 0;
+        }
+
+        .div-center {
+            width: 400px;
+            height: 400px;
+            background-color: #fff;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            max-width: 100%;
+            max-height: 100%;
+            overflow: auto;
+            padding: 1em 2em;
+            border-bottom: 2px solid #ccc;
+            display: table;
+        }
+
+        div.content {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .btn.btn-primary{
+            margin-top: 1rem;
+        }
+        .form-title{
+            display: flex; 
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .form-label{
+            margin-top:1rem;
+            font-weight: bold;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="back">
+        <div class="div-center">
+            <div class="content">
+                <div class="form-title">Login</div>
+                <hr />
+                @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+                {
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.username, "UserName",new {@class = "form-label" })
+                        @Html.TextBoxFor(m => m.username, "", new { @class = "form-control", @placeholder = "Username", @type = "text" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.password, "Password", new { @class = "form-label" })
+                        @Html.PasswordFor(m => m.password, new { @class = "form-control", @placeholder = "Password" })
+                    </div>
+                    <button type="submit" class="btn btn-primary" value="login">Login</button>
+                }
+            </div>
+            <span></span>
+        </div>
+    </div>
+</body>
+</html>

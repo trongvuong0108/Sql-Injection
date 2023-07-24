@@ -14,7 +14,7 @@ namespace SqlInjection.Service
         DataSet _dataSet { set; get; }
         public Database()
         {
-            var connectionString = "Data Source=localhost;Initial Catalog=SqlInjection;User ID=sa; PwD=Password@1234";
+            var connectionString = "workstation id=SqlInjection.mssql.somee.com;packet size=4096;user id=trong01082001_SQLLogin_1;pwd=aqytzz25vf;data source=SqlInjection.mssql.somee.com;persist security info=False;initial catalog=SqlInjection";
             _connection = new SqlConnection(connectionString);
             _connection.Open();
         }
